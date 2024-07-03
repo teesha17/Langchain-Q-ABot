@@ -14,10 +14,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configure the Google Generative AI API
-# google_api_key = os.getenv("GOOGLE_API_KEY")
-GOOGLE_API_KEY="AIzaSyAZE7NtgLMudPtJiVBsWS_0WQHs4LaxFaw"
-genai.configure(api_key=GOOGLE_API_KEY)
-#genai.configure(api_key=google_api_key)
+google_api_key = os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=google_api_key)
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -52,7 +50,7 @@ def get_conversational_chain():
     return chain
 
 def user_input(user_question):
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", api_key=GOOGLE_API_KEY)
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
     new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
     docs = new_db.similarity_search(user_question)
