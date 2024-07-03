@@ -15,8 +15,6 @@ load_dotenv()
 
 # Configure the Google Generative AI API
 google_api_key = os.getenv("GOOGLE_API_KEY")
-if google_api_key is None:
-    raise ValueError("GOOGLE_API_KEY is not set in the environment variables.")
 genai.configure(api_key=google_api_key)
 
 def get_pdf_text(pdf_docs):
