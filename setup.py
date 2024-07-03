@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 REPO_NAME = "Langchain-Q-ABot"
 AUTHOR_USER_NAME = "teesha17"
 SRC_REPO = "src"
-LIST_OF_REQUIREMENTS = ['streamlit','langchain_community']
+LIST_OF_REQUIREMENTS = ['streamlit']
 
 
 setup(
